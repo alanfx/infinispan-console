@@ -1,7 +1,8 @@
 name: Add release label to closed issues
 # This GitHub Actions workflow automatically adds the current release as a label to closed
 # issues with pull requests that were merged. The value of the current
-# release is held in a GitHub organization variable. Handles backports on the 16.0 and 16.1 branches.
+# release is held in a GitHub organization variable. The GHA also handles backports on 
+# the 16.0 and 16.1 branches.
 
 on:
   pull_request_target:
