@@ -58,3 +58,4 @@ jobs:
           for issue in "${arr[@]}";
           gh issue edit $issue --add-label $label;
           done
+
