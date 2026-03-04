@@ -48,13 +48,14 @@ jobs:
         env:
           GH_TOKEN: "${{ secrets.INFINISPAN_RELEASE_TOKEN }}"
         run: >
-          let label="release/${{ vars.RELEASE }}"
-          if [[ ${{github.event.pull_request.base_ref}} -eq '16.0' ]];
+          label="release/${{ vars.RELEASE }}"
+          if [[ ${{ github.base_ref }} -eq 16.0 ]];
           then label="release/16.0";
-          elif [[ ${{github.event.pull_request.base_ref}} -eq '16.1' ]];
+          elif [[ ${{ github.base_ref }} -eq 16.1 ]];
           then label="release/16.1";
           fi
           declare -a arr=(${{ steps.get_linked_issue.outputs.issue_urls }});
           for issue in "${arr[@]}";
           gh issue edit $issue --add-label $label;
           done
+
